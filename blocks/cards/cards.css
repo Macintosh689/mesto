@@ -1,0 +1,22 @@
+.cards {
+  margin: 0 auto 66px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 17px;
+  row-gap: 20px;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1023px) {
+  .cards {
+    margin: 0 19px 48px;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
