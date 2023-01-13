@@ -1,4 +1,4 @@
-.popup__name {
+.popup__info_name {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -9,4 +9,3 @@
   white-space: nowrap;
   overflow: hidden;
 }
-
