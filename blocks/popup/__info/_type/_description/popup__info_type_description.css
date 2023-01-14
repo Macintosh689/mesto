@@ -1,0 +1,13 @@
+.popup__info_type_description {
+  margin-bottom: 41px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+@media screen and (max-width: 767px) {
+  .popup__info_type_description {
+    margin-bottom: 34px;
+  }
+}
