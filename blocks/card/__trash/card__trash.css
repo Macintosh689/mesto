@@ -1,0 +1,11 @@
+.card__trash {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 0;
+}
+
+.card__trash:hover {
+  opacity: 0.6;
+  transition: 0.5s;
+}

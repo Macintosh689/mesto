@@ -26,66 +26,55 @@
         </div>
         <button class="profile__add-button" type="button"></button>
       </section>
-      <section class="cards">
-        <div class="card">
-          <img src="./images/karachaevsk.jpg" alt="Карачаевск" class="card__image">
-          <div class="card__description">
-            <h2 class="card__title">Карачаевск</h2>
-            <button class="card__button" type="button"></button>
-          </div>
-        </div>
-        <div class="card">
-          <img src="./images/elbrus.png" alt="Эльбрус" class="card__image">
-          <div class="card__description">
-            <h2 class="card__title">Гора Эльбрус</h2>
-            <button class="card__button" type="button"></button>
-          </div>
-        </div>
-        <div class="card">
-          <img src="./images/dombai.png" alt="Домбай" class="card__image">
-          <div class="card__description">
-            <h2 class="card__title">Домбай</h2>
-            <button class="card__button" type="button"></button>
-          </div>
-        </div>
-        <div class="card">
-          <img src="./images/alpy.jpg" alt="Альпы" class="card__image">
-          <div class="card__description">
-            <h2 class="card__title">Альпы</h2>
-            <button class="card__button" type="button"></button>
-          </div>
-        </div>
-        <div class="card">
-          <img src="./images/park-krasnodar.jpg" alt="Краснодар" class="card__image">
-          <div class="card__description">
-            <h2 class="card__title">Краснодар</h2>
-            <button class="card__button" type="button"></button>
-          </div>
-        </div>
-        <div class="card">
-          <img src="./images/mgu.jpg" alt="Москва" class="card__image">
-          <div class="card__description">
-            <h2 class="card__title">Москва</h2>
-            <button class="card__button" type="button"></button>
-          </div>
-        </div>
+      <section class="cards-gallery">
       </section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
-    <div class="popup">
+    <!-- попап редактирования профиля -->
+    <div class="popup popup_form_edit">
       <div class="popup__container">
         <button class="popup__button-close" type="button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form" name="form">
-          <input type="text" class="popup__info popup__info_type_name" name="name" placeholder="Имя">
-          <input type="text" class="popup__info popup__info_type_description" name="job" placeholder="О себе">
+        <form class="popup__form" name="formEdit">
+          <input type="text" class="popup__info popup__info_type_name-edit" name="name" placeholder="Имя">
+          <input type="text" class="popup__info popup__info_type_description-edit" name="job" placeholder="О себе">
           <button class="popup__button" type="submit">Сохранить</button>
         </form>
       </div>
     </div>
+    <!-- попап добавления карточки -->
+    <div class="popup popup_form_add">
+      <div class="popup__container">
+        <button class="popup__button-close" type="button"></button>
+        <h2 class="popup__title popup__title_form_add">Новое место</h2>
+        <form class="popup__form" name="formAdd">
+          <input type="text" class="popup__info popup__info_type_name-add" name="name" placeholder="Название">
+          <input type="text" class="popup__info popup__info_type_link-add" name="link" placeholder="Ссылка на картинку">
+          <button class="popup__button" type="submit">Создать</button>
+        </form>
+      </div>
+    </div>
+    <!-- попап с открытой картинкой -->
+    <div class="popup popup_form_image">
+      <div class="popup__container popup__container_form_image">
+        <button class="popup__button-close" type="button"></button>
+        <img class="popup__photo">
+        <h2 class="popup__title popup__title_form_image"></h2>
+      </div>
+    </div>
   </div>
+  <template id="template-card">
+    <div class="card">
+      <img class="card__image">
+      <img src="./images/Trash.svg" class="card__trash">
+      <div class="card__description">
+        <h2 class="card__title"></h2>
+        <button class="card__button-like" type="button"></button>
+      </div>
+    </div>
+  </template>
   <script src="./scripts/index.js"></script>
 </body>
 

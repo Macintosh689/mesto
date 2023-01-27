@@ -1,0 +1,21 @@
+.popup__title_form_image {
+  font-style: normal;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 400;
+  margin: 10px 0 0;
+  padding: 0;
+  color: white;
+  max-width: 291px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 767px) {
+  .popup__title_form_image {
+    max-width: 240px;
+  }
+}
+
+
