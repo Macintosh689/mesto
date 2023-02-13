@@ -7,10 +7,11 @@
 
 ## Описание технологий,использованных в этом проекте:
 * JavaScript
-* popup
+* Popup
 * Grid
 * Flex
 * Media screen
+* PerfectPixel
 * Применялись сторонние шрифты
 * Работа с макетом в Фигма
 * Относительные единицы измерения
@@ -18,11 +19,17 @@
 * Адаптивная верстка
 -----------------------
 ## практическая работа №4
+
 * [Ссылка на макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1)
 
 ## практическая работа №5
 
 * [Ссылка на макет в Figma](https://www.figma.com/file/bjyvbKKJN2naO0ucURl2Z0/JavaScript.-Sprint-5?node-id=0%3A1&t=AM8MI3CGTzPeXyB0-0)
 
+## практическая работа №6
+
+* [Ссылка на макет в Figma](https://www.figma.com/file/kRVLKwYG3d1HGLvh7JFWRT/JavaScript.-Sprint-6?node-id=0%3A1&t=QqcnreqERHOB3Gx2-0)
+
+---------------------------------
 ## Ссылка на проект
 * [проект MESTO](https://macintosh689.github.io/mesto/)
