@@ -10,11 +10,11 @@
   cursor: pointer;
   padding: 15px 0 14px;
   border-radius: 2px;
+  transition: 0.5s;
 }
 
 .popup__button:hover {
   opacity: 0.8;
-  transition: 0.5s;
 }
 
 @media screen and (max-width: 767px) {

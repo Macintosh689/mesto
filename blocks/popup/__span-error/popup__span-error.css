@@ -1,0 +1,11 @@
+.popup__span-error {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FF0000;
+  min-height: 30px;
+}
+
+.popup__span-error:last-of-type {
+  margin-bottom: 3px;
+}
