@@ -42,28 +42,33 @@ function handleFormSubmit(event) {
 }
 
 // функция закрытия попапа при нажатии на оверлей
-const clickOnOverlay = function(event, popup) {
+const clickOnOverlay = function (event) {
   const target = event.target;
-  if (target === popup) {
+  if (event.target === event.currentTarget) {
     closePopup(event.target);
   }
 }
+
 // функция закрытия попапа при нажатии на эскейп
-const closeOnEscape = function(event, popup) {
-  if(event.key === 'Escape') {
-    closePopup(popup);
+function closeByEscape(event) {
+  if (event.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
   }
 }
 
 // функция открытия попапа
 const openPopup = function (popup) {
   popup.classList.add('popup_opened');
-  popup.addEventListener('mousedown', (event) => {
-    clickOnOverlay(event,popup);
-  });
-  document.addEventListener('keydown', (event) => {
-    closeOnEscape(event,popup);
-  });
+  popup.addEventListener('mousedown', clickOnOverlay);
+  document.addEventListener('keydown', closeByEscape);
+}
+
+// функция закрытия попапа
+const closePopup = function (popup) {
+  popup.classList.remove('popup_opened');
+  popup.removeEventListener('mousedown', clickOnOverlay);
+  document.removeEventListener('keydown', closeByEscape);
 }
 
 // функция сохранения значений новой карточки в объекте
@@ -76,17 +81,7 @@ const addNewObject = function (event) {
   formAddCard.reset();
   closePopup(popupAddCard);
   addCard(card);
-}
-
-// функция закрытия попапа
-const closePopup = function (popup) {
-  popup.classList.remove('popup_opened');
-  popup.removeEventListener('mousedown', (event) => {
-    clickOnOverlay(event,popup);
-  });
-  document.removeEventListener('keydown', (event) => {
-    closeOnEscape(event,popup);
-  })
+  toggleButtonState(formAddCard, formValidationConfig);
 }
 
 // функция закрытия попапа с событием эвент
