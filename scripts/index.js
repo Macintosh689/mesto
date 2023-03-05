@@ -6,7 +6,7 @@ import { initialCards } from "./constants.js";
 const popupEditProfile = document.querySelector('.popup_edit-profile');
 const popupCloseButtons = document.querySelectorAll('.popup__button-close');
 const popupOpenButtonEdit = document.querySelector('.profile__edit-button');
-const formEditProfile = document.querySelector('.popup_form_edit');
+const formEditProfile = document.querySelector('.popup__form_edit');
 const authorNameInput = document.querySelector('.popup__input_type_name-edit');
 const authorJobInput = document.querySelector('.popup__input_type_description-edit');
 const profileName = document.querySelector('.profile__name');
@@ -14,7 +14,7 @@ const profileDescription = document.querySelector('.profile__description');
 
 // попап добавления карточки
 const popupAddCard = document.querySelector('.popup_add-card');
-const formAddCard = document.querySelector('.popup_form_add');
+const formAddCard = document.querySelector('.popup__form_add');
 const popupOpenButtonAdd = document.querySelector('.profile__add-button');
 const cardNameInput = document.querySelector('.popup__input_type_name-add');
 const cardLinkInput = document.querySelector('.popup__input_type_link-add');
