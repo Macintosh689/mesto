@@ -33,11 +33,11 @@
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
     <!-- попап редактирования профиля -->
-    <div class="popup popup_form_edit">
+    <div class="popup popup_edit-profile">
       <div class="popup__container popup__container_form_size">
         <button class="popup__button-close" type="button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form" name="formEditProfile" novalidate>
+        <form class="popup__form popup_form_edit" name="formEditProfile" novalidate>
           <input
           id="input-name"
           type="text"
@@ -63,11 +63,11 @@
       </div>
     </div>
     <!-- попап добавления карточки -->
-    <div class="popup popup_form_add">
+    <div class="popup popup_add-card">
       <div class="popup__container popup__container_form_size">
         <button class="popup__button-close" type="button"></button>
         <h2 class="popup__title popup__title_form_add">Новое место</h2>
-        <form class="popup__form" name="formAddCard" novalidate>
+        <form class="popup__form popup_form_add" name="formAddCard" novalidate>
           <input
           id="input-name-add"
           type="text"
@@ -109,9 +109,7 @@
       </div>
     </div>
   </template>
-  <script src="./scripts/constants.js"></script>
-  <script src="./scripts/validate.js"></script>
-  <script src="./scripts/index.js"></script>
+  <script type="module" src="./scripts/index.js"></script>
 </body>
 
 </html>
