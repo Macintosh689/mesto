@@ -2,6 +2,8 @@ export class FormValidator {
   constructor(config, form) {
     this._config = config;
     this._form = form;
+    this._inputList = Array.from(this._form.querySelectorAll(this._config.inputSelector));
+    this._buttonSubmit = this._form.querySelector(this._config.submitButtonSelector);
   }
 
   //отключениe отправки формы
@@ -22,11 +24,9 @@ export class FormValidator {
 
   // слушатели на каждый инпут,которые при введении текста выводят или убирают текст ошибки
   _addInputListeners() {
-    // находим все инпуты в форме
-    this._inputList = Array.from(document.querySelectorAll(this._config.inputSelector));
     // проходим по каждому инпуту и вешаем обработчик событий,в котором запускается функция проверяющая валидность инпутов
     this._inputList.forEach((item) => {
-      item.addEventListener('input', () => {
+      item.addEventListener('input', (event) => {
         this._handleFormInput(item)
       });
     });
@@ -51,12 +51,18 @@ export class FormValidator {
 
   // переключение состояния кнопки
   toggleButtonState() {
-    // ищем кнопку
-    this._buttonSubmit = this._form.querySelector(this._config.submitButtonSelector);
     // проверяем валидность формы
     this._isFormValid = this._form.checkValidity();
     // если форма не валидна ставим disabled или снимаем если форма валидна
     this._buttonSubmit.disabled = !this._isFormValid;
     this._buttonSubmit.classList.toggle(this._config.inactiveButtonClass, !this._isFormValid);
   }
+
+  resetValidation() {
+    this.toggleButtonState();
+    this._inputList.forEach((inputElement) => {
+      this._handleFormInput(inputElement)
+    });
+  }
+
 }

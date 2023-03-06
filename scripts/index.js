@@ -39,7 +39,9 @@ const formValidationConfig = {
 
 //валидация форм
 const popupEditProfileValidation = new FormValidator(formValidationConfig, formEditProfile);
+popupEditProfileValidation.enableFormValidation();
 const popupAddCardValidation = new FormValidator(formValidationConfig, formAddCard);
+popupAddCardValidation.enableFormValidation();
 
 //открытие попапа редактирования профиля и сохранение введенных значений в профиль
 const openPopupEditProfile = function () {
@@ -67,7 +69,8 @@ function saveNewValues(link, name) {
 //функция создания  нового экземпляра карточки
 function createNewCard(item) {
   const card = new Card(item, templateCard, saveNewValues);
-  cardGallery.prepend(card.createCard());
+  const cardElement = card.createCard();
+  return cardElement;
 }
 
 // функция закрытия попапа при нажатии на оверлей
@@ -107,8 +110,9 @@ const addNewObject = function (event) {
     name: cardNameInput.value,
     link: cardLinkInput.value
   }
+
+  cardGallery.prepend(createNewCard(card));
   closePopup(popupAddCard);
-  createNewCard(card);
   formAddCard.reset();
 }
 
@@ -121,13 +125,13 @@ popupCloseButtons.forEach(function (button) {
 
 // функция создания карточек из каждого объекта массива
 initialCards.forEach(function (card) {
-  createNewCard(card);
+  cardGallery.prepend(createNewCard(card));
 });
 
 // слушатель событий для кнопки попапа редактирования профиля
 popupOpenButtonEdit.addEventListener('click', (event) => {
   openPopupEditProfile(event)
-  popupEditProfileValidation.enableFormValidation();
+  popupEditProfileValidation.resetValidation();
 });
 
 // слушатель событий для формы попапа редактирования профиля
@@ -136,7 +140,7 @@ formEditProfile.addEventListener('submit', handleFormSubmit);
 // слушатели событий для кнопки buttonAdd попапа добавления карточек
 popupOpenButtonAdd.addEventListener('click', function () {
   openPopup(popupAddCard);
-  popupAddCardValidation.enableFormValidation();
+  popupAddCardValidation.toggleButtonState();
 })
 
 // слушатель событий для формы попапа добавления карточек
