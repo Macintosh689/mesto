@@ -18,27 +18,32 @@ export class Card {
     this._imageTitle.textContent = this._data.name;
     this._deleteButton = this._cloneCard.querySelector('.card__trash');
     this._cardButtonLike = this._cloneCard.querySelector('.card__button-like');
-    this._deleteCard();
-    this._toggleLike();
-    this._handleImageClick();
+    this._setEventListeners();
     return this._cloneCard;
-
   }
-  _deleteCard() {
+
+  _setEventListeners() {
     this._deleteButton.addEventListener('click', () => {
-      this._cloneCard.remove();
+      this._deleteCard();
     });
+    this._cardButtonLike.addEventListener('click', () => {
+      this._toggleLike();
+    });
+    this._cloneImageCard.addEventListener('click', () => {
+      this._handleImageClick();
+    });
+  }
+
+  _deleteCard() {
+    this._cloneCard.remove();
   }
   _toggleLike() {
-    this._cardButtonLike.addEventListener('click', () => {
-      this._cardButtonLike.classList.toggle('card__button-like_active');
-    });
+    this._cardButtonLike.classList.toggle('card__button-like_active');
   }
   _handleImageClick() {
-    this._cloneImageCard.addEventListener('click', () => {
-      this._saveNewValues(this._data.link, this._data.name);
-    });
+    this._saveNewValues(this._data.link, this._data.name);
   }
+
 }
 
 
