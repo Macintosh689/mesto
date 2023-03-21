@@ -1,11 +1,11 @@
 export class Card {
-  constructor(data, templateSelector, saveNewValues) {
+  constructor(data, templateSelector, handleCardClick) {
     this._data = data;
     this._name = this._data.name;
     this._link = this._data.link;
     this._templateSelector = templateSelector;
     this._cardElement = this._templateSelector.querySelector('.card');
-    this._saveNewValues = saveNewValues;
+    this._handleCardClick = handleCardClick;
   }
   // создание новой карточки
   createCard() {
@@ -21,7 +21,7 @@ export class Card {
     this._setEventListeners();
     return this._cloneCard;
   }
-
+  
   _setEventListeners() {
     this._deleteButton.addEventListener('click', () => {
       this._deleteCard();
@@ -30,7 +30,7 @@ export class Card {
       this._toggleLike();
     });
     this._cloneImageCard.addEventListener('click', () => {
-      this._handleImageClick();
+      this._handleCardClick(this._data.link, this._data.name);
     });
   }
 
@@ -41,9 +41,6 @@ export class Card {
     this._cardButtonLike.classList.toggle('card__button-like_active');
   }
   _handleImageClick() {
-    this._saveNewValues(this._data.link, this._data.name);
+    this._handleCardClick(this._data.link, this._data.name);
   }
-
 }
-
-
