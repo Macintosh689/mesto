@@ -1,7 +1,7 @@
 .card__trash {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 18px;
+  right: 15px;
   z-index: 0;
 }
 

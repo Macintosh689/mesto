@@ -15,7 +15,9 @@
     </header>
     <main class="content">
       <section class="profile">
-        <img src="<%=require('./images/avatar.jpg')%>" class="profile__avatar" alt="Аватар профиля">
+        <div class="profile__photo">
+          <img src="./images/avatar.jpg" class="profile__avatar" alt="Аватар профиля">
+        </div>
         <div class="profile__info">
           <div class="profile__container">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -25,8 +27,7 @@
         </div>
         <button class="profile__add-button" type="button"></button>
       </section>
-      <section class="cards-gallery">
-      </section>
+      <section class="cards-gallery"></section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
@@ -40,7 +41,7 @@
           <input id="input-name" type="text" class="popup__input popup__input_type_name-edit" name="name"
             placeholder="Имя" minlength="2" maxlength="40" required>
           <span class="popup__span-error" id="input-name-error"></span>
-          <input id="input-description" type="text" class="popup__input popup__input_type_description-edit" name="job"
+          <input id="input-description" type="text" class="popup__input popup__input_type_description-edit" name="about"
             placeholder="О себе" minlength="2" maxlength="200" required>
           <span class="popup__span-error" id="input-description-error"></span>
           <button class="popup__button" type="submit">Сохранить</button>
@@ -71,18 +72,44 @@
         <h2 class="popup__title popup__title_form_image"></h2>
       </div>
     </div>
-  </div>
-  <template id="template-card">
-    <div class="card">
-      <img class="card__image">
-      <img src="<%=require('./images/Trash.svg')%>" class="card__trash">
-      <div class="card__description">
-        <h2 class="card__title"></h2>
-        <button class="card__button-like" type="button"></button>
+    <!-- попап подтверждения удаления -->
+    <div class="popup popup_delete-card">
+      <div class="popup__container popup__container_form_size">
+        <button class="popup__button-close" type="button"></button>
+        <h2 class="popup__title">Вы уверены?</h2>
+        <form class="popup__form_type_confirm" name="formDeleteCard">
+          <button class="popup__button" type="submit">Да</button>
+        </form>
       </div>
     </div>
-  </template>
-
+    <!-- попап обновить аватар -->
+    <div class="popup popup_update-avatar">
+      <div class="popup__container popup__container_form_size">
+        <button class="popup__button-close" type="button"></button>
+        <h2 class="popup__title">Обновить аватар</h2>
+        <form class="popup__form popup__form_type_update" name="formUpdateAvatar" novalidate>
+          <input id="input-link-update" type="url" class="popup__input popup__input_type_link-avatar" name="link"
+            placeholder="Ссылка на картинку" required>
+          <span class="popup__span-error" id="input-link-add-error"></span>
+          <button class="popup__button" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+    <!-- темплейт -->
+    <template id="template-card">
+      <div class="card">
+        <img class="card__image">
+        <img src="<%=require('./images/Trash.svg')%>" class="card__trash">
+        <div class="card__description">
+          <h2 class="card__title"></h2>
+          <div class="card__like-container">
+            <button class="card__button-like" type="button"></button>
+            <p class="card__like-counter">0</p>
+          </div>
+        </div>
+      </div>
+    </template>
+  </div>
 </body>
 
 </html>

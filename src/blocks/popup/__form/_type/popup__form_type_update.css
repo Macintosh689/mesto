@@ -1,0 +1,5 @@
+.popup__form_type_update {
+  padding: 54px 36px 36px;
+  display: flex;
+  flex-direction: column;
+}
