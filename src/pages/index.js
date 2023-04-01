@@ -36,6 +36,7 @@ const formValidationConfig = {
   inputErrorClass: "popup__input_type_error",
 };
 
+
 const api = new Api({
   baseUrl: "https://mesto.nomoreparties.co/v1/cohort-62",
   headers: {
