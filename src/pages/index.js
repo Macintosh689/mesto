@@ -10,7 +10,7 @@ import { UserInfo } from "../components/UserInfo.js";
 import { Api } from "../components/Api.js";
 import { PopupWithDelete } from "../components/PopupWithDelete.js";
 
-const EditAvatarButton = document.querySelector(".profile__photo");
+const editAvatarButton = document.querySelector(".profile__photo");
 
 // поля ввода имени и описания профиля
 const inputName = document.querySelector(".popup__input_type_name-edit");
@@ -24,6 +24,8 @@ const formEditProfile = document.querySelector(".popup__form_edit");
 const formAddCard = document.querySelector(".popup__form_add");
 const popupOpenButtonAdd = document.querySelector(".profile__add-button");
 
+const formUpdateAvatar = document.querySelector(".popup__form_type_update");
+
 // темплейт
 const templateCard = document.querySelector("#template-card").content;
 
@@ -35,7 +37,6 @@ const formValidationConfig = {
   inactiveButtonClass: "popup__button_disabled",
   inputErrorClass: "popup__input_type_error",
 };
-
 
 const api = new Api({
   baseUrl: "https://mesto.nomoreparties.co/v1/cohort-62",
@@ -76,6 +77,13 @@ const popupAddCardValidation = new FormValidator(
   formAddCard
 );
 popupAddCardValidation.enableFormValidation();
+
+const popupUpdateValidation = new FormValidator(
+  formValidationConfig,
+  formUpdateAvatar
+);
+popupUpdateValidation.enableFormValidation();
+
 
 // экземпляр класса PopupWithImage
 const popupWithImage = new PopupWithImage(".popup_form_image");
@@ -209,7 +217,7 @@ popupOpenButtonEdit.addEventListener("click", () => {
   inputName.value = userInfo.getUserInfo().name;
   inputJob.value = userInfo.getUserInfo().about;
   popupWithFormEdit.open();
-  popupEditProfileValidation.resetValidation();
+  popupEditProfileValidation.toggleButtonState();
 });
 
 // слушатели событий для кнопки buttonAdd попапа добавления карточек
@@ -218,9 +226,12 @@ popupOpenButtonAdd.addEventListener("click", function () {
   popupAddCardValidation.toggleButtonState();
 });
 
-EditAvatarButton.addEventListener("click", function () {
+editAvatarButton.addEventListener("click", function () {
   popupWithAvatar.open();
+  popupUpdateValidation.toggleButtonState();
 });
+
+
 
 // слушатель события изменения описания профиля
 popupWithFormEdit.setEventListeners();
@@ -231,3 +242,4 @@ popupWithFormAdd.setEventListeners();
 popupWithDelete.setEventListeners();
 
 popupWithAvatar.setEventListeners();
+

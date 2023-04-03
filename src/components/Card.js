@@ -43,7 +43,7 @@ export class Card {
       this._handleDelete(this._data, this._deleteCard.bind(this));
     });
     this._cardButtonLike.addEventListener("click", () => {
-      this._toggleLikeApi(this._data);
+      this._toggleLikeApi();
     });
     this._cloneImageCard.addEventListener("click", () => {
       this._handleCardClick(this._data.link, this._data.name);
@@ -77,11 +77,11 @@ export class Card {
     this._cardButtonLike.classList.add("card__button-like_active");
   }
 
-  _toggleLikeApi(data) {
+  _toggleLikeApi() {
     if (this._cardButtonLike.classList.contains("card__button-like_active")) {
-      this._dislikeCardApi(data._id);
+      this._dislikeCardApi(this._data._id);
     } else {
-      this._likeCardApi(data._id);
+      this._likeCardApi(this._data._id);
     }
   }
 
