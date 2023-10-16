@@ -37,12 +37,12 @@
 ## Ссылка на проект
 * [проект MESTO](https://macintosh689.github.io/mesto/)
 ---------------------------------
-##Запуск проекта:
+## Запуск проекта:
 1) Клонировать репозиторий
-git clone https://github.com/Macintosh689/mesto.git
+`git clone https://github.com/Macintosh689/mesto.git`
 2) Установить зависимости 
-npm install
+`npm install`
 3) Запуск проекта
-npm run dev(запуск в режиме разработки)
+`npm run dev` (запуск в режиме разработки)
 
-npm run build(создание финальной сборки)
+`npm run build` (создание финальной сборки)
