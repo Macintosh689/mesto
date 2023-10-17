@@ -39,17 +39,16 @@
 ---------------------------------
 ## Запуск проекта:
 1) Клонировать репозиторий
-
-  `git clone https://github.com/Macintosh689/mesto.git`
-
+```
+  git clone https://github.com/Macintosh689/mesto.git`
+```
 2) Установить зависимости
- 
-  `npm install`
-
-3) Запуск проекта
-
-  `npm run dev` (запуск в режиме разработки)
-
-  `npm run build` (создание финальной сборки)
-
+ ```
+  npm install
+ ```
+3) Запустить проект
+```
+npm run dev (запуск в режиме разработки)
+```
+    npm run build (создание финальной сборки)
 
